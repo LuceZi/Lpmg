@@ -4,6 +4,11 @@
 #include <array>
 #include <sys/wait.h>
 
+PackageResult PacmanBackend::Detect()
+{
+  return RunCommand("pacman -Qn ");
+}
+
 PackageResult PacmanBackend::Install(const std::string &pkg)
 {
   return RunCommand("sudo pacman -S --noconfirm " + pkg);

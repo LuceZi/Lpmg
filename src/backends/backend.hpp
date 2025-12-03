@@ -34,6 +34,7 @@ public:
   virtual PackageResult Remove(const std::string &pkg) = 0;
   virtual PackageResult Update() = 0;
   virtual PackageResult Upgrade() = 0;
+  virtual PackageResult Detect() = 0;
 };
 
 //=============================================================
@@ -45,6 +46,7 @@ public:
   PackageResult Remove(const std::string &pkg) override;
   PackageResult Update() override;
   PackageResult Upgrade() override;
+  PackageResult Detect() override;
 
 private:
   PackageResult RunCommand(const std::string &cmd);
