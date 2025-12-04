@@ -6,27 +6,28 @@
 
 PackageResult PacmanBackend::Detect()
 {
-  return RunCommand("pacman -Qn ");
+  return RunCommand("yay -Qm ");
 }
 
 PackageResult PacmanBackend::Install(const std::string &pkg)
 {
-  return RunCommand("pacman -S --noconfirm " + pkg);
+  return RunCommand("yay -S --noconfirm " + pkg);
 }
 
 PackageResult PacmanBackend::Remove(const std::string &pkg)
 {
-  return RunCommand("pacman -R --noconfirm " + pkg);
+  return RunCommand("yay -R --noconfirm " + pkg);
 }
 
 PackageResult PacmanBackend::Update()
 {
-  return RunCommand("pacman -Sy");
+  return RunCommand("yay -Sy");
 }
 
+// aur and pacman use same command for update
 PackageResult PacmanBackend::Upgrade()
 {
-  return RunCommand("pacman -Syu --noconfirm");
+  return RunCommand("yay -Syu --noconfirm");
 }
 
 PackageResult PacmanBackend::RunCommand(const std::string &cmd)

@@ -1,3 +1,4 @@
+#pragma once
 #include "cli.hpp"
 #include <iostream>
 #include <stdexcept>

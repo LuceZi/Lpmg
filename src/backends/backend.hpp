@@ -2,8 +2,6 @@
 #include <string>
 #include <vector>
 
-//=============================================================
-// 錯誤代碼列舉
 enum class BackendError
 {
   OK = 0,
@@ -14,8 +12,6 @@ enum class BackendError
   UNKNOWN
 };
 
-//=============================================================
-// 套件操作結果結構
 struct PackageResult
 {
   BackendError code;
@@ -24,7 +20,6 @@ struct PackageResult
 };
 
 //=============================================================
-// 抽象基底類別
 class Backend
 {
 public:
@@ -37,9 +32,20 @@ public:
   virtual PackageResult Detect() = 0;
 };
 
-//=============================================================
-// Pacman 後端實作
 class PacmanBackend : public Backend
+{
+public:
+  PackageResult Install(const std::string &pkg) override;
+  PackageResult Remove(const std::string &pkg) override;
+  PackageResult Update() override;
+  PackageResult Upgrade() override;
+  PackageResult Detect() override;
+
+private:
+  PackageResult RunCommand(const std::string &cmd);
+};
+
+class AurBackend : public Backend
 {
 public:
   PackageResult Install(const std::string &pkg) override;

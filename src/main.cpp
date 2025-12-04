@@ -1,6 +1,8 @@
+#include "cli.hpp"
+#include "core.hpp"
 #include <iostream>
 #include <string>
-#include "parser/cli.hpp"
+#include <unistd.h>
 
 int main(int argc, char *argv[])
 {
@@ -13,6 +15,8 @@ int main(int argc, char *argv[])
     {
       std::cout << "Performing full upgrade...\n";
       // Here you would call the core function to handle full upgrade
+      AutoFullUpdate(); // Call the function to perform full update
+      std::cout << "Full upgrade completed.\n";
       // dector loop heire
       return 0;
     }
