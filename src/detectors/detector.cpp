@@ -1,5 +1,5 @@
-#include "../detectors/detector.hpp"
-#include "../backends/backend.hpp"
+#include "../includes/detector.hpp"
+#include "../includes/backend.hpp"
 #include <string>
 #include <vector>
 #include <utility>

@@ -3,3 +3,6 @@
 
 #compiled files
 *.out
+
+#IDE files
+/.idea/

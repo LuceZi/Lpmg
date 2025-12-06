@@ -1,6 +1,6 @@
-#include "core.hpp"
-#include "../detectors/detector.hpp"
-#include "../backends/backend.hpp"
+#include "../includes/core.hpp"
+#include "../includes/detector.hpp"
+#include "../includes/backend.hpp"
 #include <iostream>
 #include <vector>
 #include <string>

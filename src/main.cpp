@@ -1,7 +1,7 @@
-#include "parser/cli.hpp"
-#include "detectors/detector.hpp"
-#include "backends/backend.hpp"
-#include "core/core.hpp"
+#include "includes/cli.hpp"
+#include "includes/detector.hpp"
+#include "includes/backend.hpp"
+#include "includes/core.hpp"
 #include <iostream>
 #include <string>
 #include <unistd.h>
