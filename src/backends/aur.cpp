@@ -4,33 +4,33 @@
 #include <array>
 #include <sys/wait.h>
 
-PackageResult PacmanBackend::Detect()
+PackageResult AurBackend::Detect()
 {
   return RunCommand("yay -Qm ");
 }
 
-PackageResult PacmanBackend::Install(const std::string &pkg)
+PackageResult AurBackend::Install(const std::string &pkg)
 {
   return RunCommand("yay -S --noconfirm " + pkg);
 }
 
-PackageResult PacmanBackend::Remove(const std::string &pkg)
+PackageResult AurBackend::Remove(const std::string &pkg)
 {
   return RunCommand("yay -R --noconfirm " + pkg);
 }
 
-PackageResult PacmanBackend::Update()
+PackageResult AurBackend::Update()
 {
   return RunCommand("yay -Sy");
 }
 
 // aur and pacman use same command for update
-PackageResult PacmanBackend::Upgrade()
+PackageResult AurBackend::Upgrade()
 {
   return RunCommand("yay -Syu --noconfirm");
 }
 
-PackageResult PacmanBackend::RunCommand(const std::string &cmd)
+PackageResult AurBackend::RunCommand(const std::string &cmd)
 {
   std::array<char, 256> buffer{};
   std::string output;

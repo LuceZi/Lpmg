@@ -1,9 +1,15 @@
 #pragma once
-#include "backend.hpp"
 #include <iostream>
 #include <vector>
 #include <string>
 
-static void AutoFullUpdate();
+enum class CoreError
+{
+  OK = 0,
+  CoreError,
+  UNKNOWN
+};
+
+CoreError AutoFullUpgrade();
 
 std::vector<std::string> GetPackageManagers();

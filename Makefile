@@ -1,0 +1,27 @@
+CXX := g++
+#vCXXFLAGS := -std=c++20 -Wall -Wextra -Iinclude
+CXXFLAGS := -std=c++20 -Wall -Wextra -Iinclude -Isrc/detectors
+
+SRC_DIR := src
+BUILD_DIR := build
+
+# 找出所有 cpp
+SRCS := $(shell find $(SRC_DIR) -name '*.cpp')
+OBJS := $(patsubst $(SRC_DIR)/%.cpp, $(BUILD_DIR)/%.o, $(SRCS))
+
+TARGET := lpmg.out
+
+all: $(TARGET)
+
+$(TARGET): $(OBJS)
+	$(CXX) $(CXXFLAGS) -o $@ $^
+
+# 編譯每一個 cpp -> o
+$(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp
+	@mkdir -p $(dir $@)
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+clean:
+	rm -rf $(BUILD_DIR) $(TARGET)
+
+.PHONY: all clean

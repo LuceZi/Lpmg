@@ -16,7 +16,7 @@ struct PackageResult
 {
   BackendError code;
   std::string message;
-  int exit_code; // system() 或 popen() 的原始碼
+  int exit_code;
 };
 
 //=============================================================

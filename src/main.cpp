@@ -1,5 +1,7 @@
-#include "cli.hpp"
-#include "core.hpp"
+#include "parser/cli.hpp"
+#include "detectors/detector.hpp"
+#include "backends/backend.hpp"
+#include "core/core.hpp"
 #include <iostream>
 #include <string>
 #include <unistd.h>
@@ -14,8 +16,11 @@ int main(int argc, char *argv[])
     if (args.command == "full-upgrade")
     {
       std::cout << "Performing full upgrade...\n";
-      // Here you would call the core function to handle full upgrade
-      AutoFullUpdate(); // Call the function to perform full update
+      if (AutoFullUpgrade() != CoreError::OK)
+      {
+        std::cerr << "Full upgrade failed.\n";
+        return 1;
+      }
       std::cout << "Full upgrade completed.\n";
       // dector loop heire
       return 0;

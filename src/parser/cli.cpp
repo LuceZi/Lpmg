@@ -1,4 +1,3 @@
-#pragma once
 #include "cli.hpp"
 #include <iostream>
 #include <stdexcept>
@@ -16,9 +15,9 @@ CLIArgs CLIParser::parse(int argc, char *argv[])
 
   if (args.command != "install" &&
       args.command != "remove" &&
-      args.command != "search" &&
       args.command != "update" &&
-      args.command != "full-upgrade")
+      args.command != "full-upgrade" &&
+      args.command != "search")
   {
     throw std::runtime_error("Error: unknown command '" + args.command + "'");
   }

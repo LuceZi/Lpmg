@@ -1,6 +1,5 @@
-#pragma once
-#include "detector.hpp"
-#include "backend.hpp"
+#include "../detectors/detector.hpp"
+#include "../backends/backend.hpp"
 #include <string>
 #include <vector>
 #include <utility>
